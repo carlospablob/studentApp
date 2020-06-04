@@ -5,6 +5,8 @@ import {Store} from '@ngrx/store';
 import {AppState} from '../../app.reducer';
 import * as actions from './../../actions/student.actions';
 import {StudentModel} from '../../models/student.model';
+import {MatDialogRef} from '@angular/material';
+import {ModalResponseEnum} from '../../enum/modalResponse.enum';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +21,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private store: Store<AppState>,
-    private fb: FormBuilder
+    public dialogRef: MatDialogRef<RegisterComponent>,
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit() {
@@ -50,6 +53,6 @@ export class RegisterComponent implements OnInit {
   sendDataOfStudent() {
     if (this.formStudent.invalid) { return ; }
     this.store.dispatch(actions.createStudent(new StudentModel(this.formStudent.value)));
-    this.formStudent.reset();
+    this.dialogRef.close(ModalResponseEnum.MESSAGE);
   }
 }

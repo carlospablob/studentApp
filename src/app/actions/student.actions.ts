@@ -5,3 +5,8 @@ export const createStudent = createAction(
   '[CREATE] Create student',
   props<StudentModel>()
   );
+
+export const deleteStudent = createAction(
+  '[DELETE] Delete student',
+  props<{id: string}>()
+);

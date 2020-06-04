@@ -32,16 +32,40 @@ export class RegisterComponent implements OnInit {
   loadFormRegister() {
     this.formStudent = this.fb.group({
       id: [this.generateUUID(), Validators.required],
-      name: [null, Validators.required],
-      firtsName: [null, Validators.required],
-      lastName: [null, Validators.required],
+      name: [null, [
+        Validators.required,
+        Validators.maxLength(50)
+      ]],
+      firtsName: [null, [
+        Validators.required,
+        Validators.maxLength(50)
+      ]],
+      lastName: [null, [
+        Validators.required,
+        Validators.maxLength(50)
+      ]],
       address: this.fb.group({
-        street: [null, Validators.required],
-        city: [null, Validators.required],
-        state: [null, Validators.required],
-        zipcode: [null, Validators.required],
+        street: [null, [
+          Validators.required,
+          Validators.maxLength(50)
+        ]],
+        city: [null, [
+      Validators.required,
+      Validators.maxLength(50)
+    ]],
+        state: [null, [
+          Validators.required,
+          Validators.maxLength(50)
+        ]],
+        zipcode: [null, [
+          Validators.required,
+          Validators.maxLength(5)
+        ]],
       }),
-      phone: [null, Validators.required],
+      phone: [null, [
+        Validators.required,
+        Validators.maxLength(13)
+      ]],
       gpa: [null, Validators.required]
     });
   }

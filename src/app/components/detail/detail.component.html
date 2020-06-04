@@ -8,42 +8,71 @@
 
     <div>
       <mat-form-field>
-        <input matInput placeholder="Nombre" formControlName="name">
+        <input matInput placeholder="Nombre"
+               formControlName="name"
+               maxlength="50"
+               autofocus required>
+        <mat-error *ngIf="formStudent.get('name').hasError('required')">Campo requerido</mat-error>
+        <mat-error *ngIf="formStudent.get('name').hasError('maxLength')">Campo requerido</mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Apellido Paterno" formControlName="firtsName">
+        <input matInput placeholder="Apellido Paterno"
+               formControlName="firtsName" required>
+        <mat-error *ngIf="formStudent.get('firtsName').hasError('required')">Campo requerido</mat-error>
+        <mat-error *ngIf="formStudent.get('firtsName').hasError('maxLength')">Campo requerido</mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Apellido Materno" formControlName="lastName">
+        <input matInput placeholder="Apellido Materno"
+               formControlName="lastName" required>
+        <mat-error *ngIf="formStudent.get('lastName').hasError('required')">Campo requerido</mat-error>
+        <mat-error *ngIf="formStudent.get('lastName').hasError('maxLength')">Campo requerido</mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Télefono" formControlName="phone">
+        <input matInput placeholder="Télefono"
+               formControlName="phone" required>
+        <mat-error *ngIf="formStudent.get('phone').hasError('required')">Campo requerido</mat-error>
+        <mat-error *ngIf="formStudent.get('phone').hasError('maxLength')">Campo requerido</mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="GPA" formControlName="gpa">
+        <input matInput placeholder="GPA"
+               formControlName="gpa" required>
+        <mat-error *ngIf="formStudent.get('gpa').hasError('required')">Campo requerido</mat-error>
+        <mat-error *ngIf="formStudent.get('gpa').hasError('maxLength')">Campo requerido</mat-error>
       </mat-form-field>
     </div>
 
     <div>
       <ng-container formGroupName="address">
         <mat-form-field>
-          <input matInput placeholder="Calle y número" formControlName="street">
+          <input matInput placeholder="Calle y número"
+                 formControlName="street" required>
+          <mat-error *ngIf="formStudent.get('address.street').hasError('required')">Campo requerido</mat-error>
+          <mat-error *ngIf="formStudent.get('address.street').hasError('maxLength')">Campo requerido</mat-error>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput placeholder="Ciudad" formControlName="city">
+          <input matInput placeholder="Ciudad"
+                 formControlName="city" required>
+          <mat-error *ngIf="formStudent.get('address.city').hasError('required')">Campo requerido</mat-error>
+          <mat-error *ngIf="formStudent.get('address.city').hasError('maxLength')">Campo requerido</mat-error>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput placeholder="Estado" formControlName="state">
+          <input matInput placeholder="Estado"
+                 formControlName="state" required>
+          <mat-error *ngIf="formStudent.get('address.state').hasError('required')">Campo requerido</mat-error>
+          <mat-error *ngIf="formStudent.get('address.state').hasError('maxLength')">Campo requerido</mat-error>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput placeholder="Código Postal" formControlName="zipcode">
+          <input matInput placeholder="Código Postal"
+                 formControlName="zipcode" required>
+          <mat-error *ngIf="formStudent.get('address.zipcode').hasError('required')">Campo requerido</mat-error>
+          <mat-error *ngIf="formStudent.get('address.zipcode').hasError('maxLength')">Campo requerido</mat-error>
         </mat-form-field>
       </ng-container>
     </div>

@@ -24,10 +24,10 @@ const _createStudent = createReducer(initialState,
 
   on(deleteStudent, (state, {id}) => state.filter(student => student.id !== id) ),
 
-  on(updateStudent, (state, student) => {
+  on(updateStudent, (state, {student}) => {
     return state.map(item => {
       if (item.id === student.id) {
-        return student
+        return student;
       } else {
         return item;
       }

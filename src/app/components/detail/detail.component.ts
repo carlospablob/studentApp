@@ -25,6 +25,10 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     this.loadFormRegister();
+    if (this.data) {
+      console.log(this.data)
+      this.formStudent.setValue(this.data);
+    }
   }
 
   loadFormRegister() {
@@ -66,17 +70,13 @@ export class DetailComponent implements OnInit {
       ]],
       gpa: [null, Validators.required]
     });
-    if (this.data) {
-      console.log(this.data)
-      this.formStudent.setValue(this.data);
-    }
   }
 
 
   updateDataOfStudent() {
     if (this.formStudent.invalid) { return ; }
     console.log(this.formStudent.value)
-    this.store.dispatch(actions.updateStudent(new StudentModel(this.formStudent.value)));
+    this.store.dispatch(actions.updateStudent({student: new StudentModel(this.formStudent.value)}));
     this.dialogRef.close(ModalResponseEnum.MESSAGE);
   }
 }

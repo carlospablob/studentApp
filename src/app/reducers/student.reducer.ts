@@ -1,23 +1,9 @@
 import {createReducer, on} from '@ngrx/store';
 import {createStudent, deleteStudent, updateStudent} from '../actions/student.actions';
 import {StudentModel} from '../models/student.model';
+import {DATA_STUDENTS} from "../dataStudents";
 
-export const initialState: StudentModel[] = [
-  new StudentModel({
-    id: 'kshdkfjasdkj',
-    name: 'Carlos',
-    firtsName: 'Pablo',
-    lastName: 'Bautista',
-    address: {
-      street: 'Av. acueducto',
-      city: 'México',
-      state: 'México',
-      zipcode: '52929',
-    },
-    phone: '5527310514',
-    gpa: 'demo'
-  })
-];
+export const initialState: StudentModel[] = DATA_STUDENTS;
 
 const _createStudent = createReducer(initialState,
   on(createStudent, (state, student) => [...state, student]),

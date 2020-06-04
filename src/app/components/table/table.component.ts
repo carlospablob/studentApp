@@ -6,6 +6,8 @@ import {AppState} from '../../app.reducer';
 import {ModalResponseEnum} from '../../enum/modalResponse.enum';
 import {SnackbarService} from '../../services/snackbar.service';
 import * as actions from './../../actions/student.actions';
+import {DetailComponent} from "../detail/detail.component";
+import {StudentModel} from "../../models/student.model";
 
 
 @Component({
@@ -41,13 +43,27 @@ export class TableComponent implements OnInit {
       width: 'auto',
       height: 'auto',
       disableClose: true,
-      autoFocus: false
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
       if (result === ModalResponseEnum.MESSAGE) {
         this.snackbarService.openSnackBar('El estudiante se ha registrado correctamente');
+      }
+    });
+  }
+
+  openDialogDetailStudent(student: StudentModel) {
+    const dialogRef = this.dialog.open(DetailComponent, {
+      width: 'auto',
+      height: 'auto',
+      disableClose: true,
+      data: student
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === ModalResponseEnum.MESSAGE) {
+        this.snackbarService.openSnackBar('El estudiante se ha actualizado correctamente');
       }
     });
   }

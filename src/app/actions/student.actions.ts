@@ -10,3 +10,8 @@ export const deleteStudent = createAction(
   '[DELETE] Delete student',
   props<{id: string}>()
 );
+
+export const updateStudent = createAction(
+  '[UPDATE] Update student',
+  props<StudentModel>()
+);

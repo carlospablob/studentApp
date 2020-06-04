@@ -12,12 +12,14 @@ import { TableComponent } from './components/table/table.component';
 import {AppRoutingModule} from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from './material/material.module';
+import { DetailComponent } from './components/detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    TableComponent
+    TableComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,10 @@ import {MaterialModule} from './material/material.module';
     MaterialModule
   ],
   providers: [],
-  entryComponents: [RegisterComponent],
+  entryComponents: [
+    RegisterComponent,
+    DetailComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

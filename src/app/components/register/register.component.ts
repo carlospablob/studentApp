@@ -45,6 +45,7 @@ export class RegisterComponent implements OnInit {
       gpa: [null, Validators.required]
     });
   }
+
   generateUUID() {
     this.uuidValue = UUID.UUID();
     return this.uuidValue;

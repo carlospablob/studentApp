@@ -3,7 +3,7 @@
 <div mat-dialog-content>
   <div class="form-register" [formGroup]="formStudent">
     <mat-form-field>
-      <input matInput placeholder="Nombre" formControlName="name">
+      <input matInput placeholder="Nombre" formControlName="name" autofocus>
     </mat-form-field>
 
     <mat-form-field>
@@ -14,9 +14,23 @@
       <input matInput placeholder="Apellido Materno" formControlName="lastName">
     </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Calle y número" formControlName="street">
-    </mat-form-field>
+    <ng-container formGroupName="address">
+      <mat-form-field>
+        <input matInput placeholder="Calle y número" formControlName="street">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Ciudad" formControlName="city">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Estado" formControlName="state">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Código Postal" formControlName="zipcode">
+      </mat-form-field>
+    </ng-container>
 
     <mat-form-field>
       <input matInput placeholder="Télefono" formControlName="phone">
@@ -30,5 +44,5 @@
 
 <div mat-dialog-actions>
   <button mat-button color="warn" mat-dialog-close>Cancelar</button>
-  <button mat-button color="primary">Registrar</button>
+  <button mat-button color="primary" (click)="sendDataOfStudent()">Registrar</button>
 </div>

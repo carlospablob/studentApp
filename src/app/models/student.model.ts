@@ -1,7 +1,15 @@
-export class StudentModel {
-  public student: string;
+import {AddressModel} from './address.model';
 
-  constructor( student: string ) {
-    this.student = student;
+export class StudentModel {
+  id: string;
+  name: string;
+  firtsName: string;
+  lastName: string;
+  address: AddressModel;
+  phone: string;
+  gpa: string;
+
+  constructor( init?: Partial<StudentModel> ) {
+    Object.assign(this, init);
   }
 }

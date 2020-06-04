@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { UUID } from 'angular2-uuid';
+import {UUID} from 'angular2-uuid';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../app.reducer';
 import * as actions from './../../actions/student.actions';
@@ -23,7 +23,8 @@ export class RegisterComponent implements OnInit {
     private store: Store<AppState>,
     public dialogRef: MatDialogRef<RegisterComponent>,
     private fb: FormBuilder,
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.loadFormRegister();
@@ -50,9 +51,9 @@ export class RegisterComponent implements OnInit {
           Validators.maxLength(50)
         ]],
         city: [null, [
-      Validators.required,
-      Validators.maxLength(50)
-    ]],
+          Validators.required,
+          Validators.maxLength(50)
+        ]],
         state: [null, [
           Validators.required,
           Validators.maxLength(50)
